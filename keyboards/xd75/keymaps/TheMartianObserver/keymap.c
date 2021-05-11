@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_L1] = LAYOUT_ortho_5x15(
-        RESET, KC_F1, KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        RESET,        KC_F1, KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+        C(A(KC_DEL)), KC_1,    KC_2,    KC_3,    KC_4,    KC_5, KC_NO, KC_NO, KC_6,    KC_7,    KC_8,    KC_9,   KC_0, KC_NO, KC_NO,
          KC_NO, KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_NO, KC_NO,   KC_NO,   KC_NO,   OSM(MOD_LSFT), OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LCTL),   KC_NO,KC_NO,
          KC_NO, KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO, KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO

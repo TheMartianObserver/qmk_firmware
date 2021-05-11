@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         C(A(KC_DEL)), KC_1,    KC_2,    KC_3,    KC_4,    KC_5, KC_NO, KC_NO, KC_6,    KC_7,    KC_8,    KC_9,   KC_0, KC_NO, KC_NO,
          KC_CAPS, KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_NO, KC_NO,   KC_NO,   KC_NO,   OSM(MOD_LSFT), OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LCTL),   KC_NO,KC_NO,
          KC_NO, KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-         KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO, KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+         KC_MUTE, CG_SWAP, CG_NORM, KC_NO, KC_NO,KC_NO, KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
     [_L2] = LAYOUT_ortho_5x15(

@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QW] = LAYOUT_ortho_5x15(
         KC_GRV,           KC_1,    KC_2,    KC_3,    KC_4,    KC_5, KC_ESC, C(G(KC_Q)),  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   KC_DEL,  KC_BSPC,
         KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T, KC_NO, KC_NO,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P, KC_LBRC, KC_RBRC,
-        OSM(MOD_LCTL),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_PGUP,   KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN,          KC_QUOT, KC_ENT,
+        OSM(MOD_LCTL),   KC_A,    MT(MOD_LCTL, KC_S),    MT(MOD_LALT, KC_D),    MT(MOD_LGUI, KC_F),    KC_G,    KC_HOME, KC_PGUP,   KC_H,    MT(MOD_RGUI, KC_J),    MT(MOD_RALT, KC_K),    MT(MOD_RCTL, KC_L),   KC_SCLN,          KC_QUOT, KC_ENT,
         OSM(MOD_LSFT),          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_PGDN,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
         OSM(MOD_HYPR), OSM(MOD_MEH), OSM(MOD_LCTL), OSM(MOD_LALT),OSM(MOD_LGUI),  LSFT_T(KC_SPC),  LT(2, KC_DEL), LT(2, KC_BSPC), LT(1, KC_SPC), OSM(MOD_RGUI), OSM(MOD_RALT), OSM(MOD_RCTL), KC_LEFT, KC_DOWN, KC_RGHT
     ),

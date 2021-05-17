@@ -10,11 +10,11 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QW] = LAYOUT_ortho_5x15(
-        KC_ESC,        KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_NO, C(G(KC_Q)),  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   KC_DEL,  KC_BSPC,
-        KC_TAB,        KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_NO, KC_NO,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P, KC_GRV, MO(3),
+        KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_NO, C(G(KC_Q)),  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
+        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_NO, KC_NO,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P, KC_GRV, MO(3),
         MT(MOD_LCTL, KC_ESC), KC_A,         KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_PGUP,   KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
-        OSM(MOD_LSFT), KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_PGDN,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
-        OSM(MOD_HYPR), OSM(MOD_MEH), OSM(MOD_LCTL), OSM(MOD_LALT),OSM(MOD_LGUI),  LSFT_T(KC_SPC),  LT(2, KC_DEL), LT(2, KC_BSPC), LT(1, KC_SPC), MO(2), OSM(MOD_RGUI), OSM(MOD_RALT), KC_LEFT, KC_DOWN, KC_RGHT
+        OSM(MOD_LSFT),        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_PGDN,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
+        OSM(MOD_HYPR),        OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT),OSM(MOD_LGUI), LSFT_T(KC_SPC),  KC_DEL, KC_BSPC, LT(1, KC_SPC), OSL(2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
     ),
 
     [_L1] = LAYOUT_ortho_5x15(
@@ -27,9 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_L2] = LAYOUT_ortho_5x15(
         KC_NO,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,
-        KC_NO,  KC_TAB,         KC_NO,         KC_NO,         KC_NO,          KC_NO, KC_MUTE, KC_NO, KC_NO,    KC_NO,    KC_UP,    KC_NO,   KC_DEL, KC_NO, KC_NO,
-         KC_NO, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI),  KC_NO, KC_VOLU,   KC_F15,   KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_BSPC, KC_ENT, KC_NO,
-         KC_NO, C(A(G(S(KC_LEFT)))),         C(A(G(S(KC_RIGHT)))),         KC_NO,         KC_NO,          KC_NO, KC_VOLD,   KC_F14,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO,  KC_TAB,         KC_NO,         KC_NO,         KC_NO,          KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO,    KC_UP,    KC_NO,   KC_NO, KC_NO, KC_NO,
+         KC_NO, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI),  KC_NO, KC_VOLU,   KC_F15,   KC_BSPC,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_DEL, KC_ENT, KC_NO,
+         KC_NO, C(A(G(S(KC_LEFT)))),         C(A(G(S(KC_RIGHT)))),         KC_NO,         KC_NO,          KC_NO, KC_VOLD,   KC_F14,   KC_NO,   KC_NO, G(KC_DOWN), KC_NO, KC_NO, KC_NO, KC_NO,
          _______, _______, _______, _______, _______,_______, KC_NO,   KC_NO,KC_NO, _______, _______, _______, KC_NO, KC_NO, KC_NO
     ),
 

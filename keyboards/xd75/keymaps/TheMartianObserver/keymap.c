@@ -89,7 +89,7 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QW] = LAYOUT_ortho_5x15(
         KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_MINUS, KC_EQL,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
-        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_UNDS, KC_PLUS,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  MO(3), KC_DEL,
+        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_UNDS, KC_PLUS,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(3, KC_DEL),
         LCTL_T(KC_ESC), KC_A,         KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_PGUP,   KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
         KC_LGUI,        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_PGDN,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
         OSM(MOD_LSFT), OSM(MOD_LCTL), KC_NO, OSM(MOD_LALT), OS_CMD, LSFT_T(KC_SPC),  KC_DEL, KC_BSPC, LT(1, KC_SPC), OSL(2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT

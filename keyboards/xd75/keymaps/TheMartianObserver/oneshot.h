@@ -1,6 +1,8 @@
 #ifndef THEMARTIANOBSERVER_ONESHOT_H_
 #define THEMARTIANOBSERVER_ONESHOT_H_
 
+extern uint16_t os_timer;
+
 // One shot implementation from callum-oakley
 // Represents the four states a oneshot key can be in
 typedef enum {

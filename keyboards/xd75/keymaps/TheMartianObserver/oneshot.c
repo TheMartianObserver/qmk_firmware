@@ -1,8 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "oneshot.h"
-
-
+#include "config.h"
 
 void update_oneshot(
     oneshot_state *state,
@@ -20,8 +19,9 @@ void update_oneshot(
             return;
           }
 
-            // Trigger keydown
+            // Trigger keydown and start timer
             if (*state == os_up_unqueued) {
+              os_timer = timer_read();
                 register_code(mod);
             }
             *state = os_down_unused;
@@ -43,11 +43,14 @@ void update_oneshot(
         }
     } else {
         if (record->event.pressed) {
-            if (is_oneshot_cancel_key(keycode) && *state != os_up_unqueued) {
-                // Cancel oneshot on designated cancel keydown.
-                *state = os_up_unqueued;
-                unregister_code(mod);
-            }
+          if ((timer_elapsed(os_timer) > OS_MOD_TIMEOUT) && (*state != os_up_unqueued)) {
+            *state = os_up_unqueued;
+            unregister_code(mod);
+          } else if (is_oneshot_cancel_key(keycode) && *state != os_up_unqueued) {
+            // Cancel oneshot on designated cancel keydown.
+            *state = os_up_unqueued;
+            unregister_code(mod);
+          }
         } else {
             if (!is_oneshot_ignored_key(keycode)) {
                 // On non-ignored keyup, consider the oneshot used.

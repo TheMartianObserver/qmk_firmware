@@ -3,7 +3,7 @@
 #include "oneshot.h"
 #include "config.h"
 
-void update_oneshot(
+bool update_oneshot(
     oneshot_state *state,
     uint16_t mod,
     uint16_t trigger,
@@ -16,15 +16,13 @@ void update_oneshot(
           if (*state == os_up_queued) {
             *state = os_up_unqueued;
             unregister_code(mod);
-            return;
+          } else if (*state == os_up_unqueued) {
+            // Trigger keydown and start timer
+            os_timer = timer_read();
+            register_code(mod);
+            *state = os_down_unused;
           }
 
-            // Trigger keydown and start timer
-            if (*state == os_up_unqueued) {
-              os_timer = timer_read();
-                register_code(mod);
-            }
-            *state = os_down_unused;
         } else {
             // Trigger keyup
             switch (*state) {
@@ -50,6 +48,7 @@ void update_oneshot(
             // Cancel oneshot on designated cancel keydown.
             *state = os_up_unqueued;
             unregister_code(mod);
+            return false;
           }
         } else {
             if (!is_oneshot_ignored_key(keycode)) {
@@ -68,4 +67,5 @@ void update_oneshot(
             }
         }
     }
+    return true;
 }

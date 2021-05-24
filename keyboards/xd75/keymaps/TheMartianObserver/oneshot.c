@@ -43,7 +43,7 @@ void update_oneshot(
         }
     } else {
         if (record->event.pressed) {
-          if ((timer_elapsed(os_timer) > OS_MOD_TIMEOUT) && (*state != os_up_unqueued)) {
+          if ((timer_elapsed(os_timer) > MARTIAN_OS_MOD_TIMEOUT) && (*state != os_up_unqueued)) {
             *state = os_up_unqueued;
             unregister_code(mod);
           } else if (is_oneshot_cancel_key(keycode) && *state != os_up_unqueued) {

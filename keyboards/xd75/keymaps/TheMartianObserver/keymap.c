@@ -10,6 +10,9 @@
 #define TAB_R G(S(KC_RBRC))
 #define LA_SYM MO(LAYER_L1)
 #define LA_NAV MO(LAYER_L2)
+#define MSPL C(A(G(S(KC_LEFT))))
+#define MSPR C(A(G(S(KC_RIGHT))))
+#define ____ KC_TRNS
 
 enum keycodes {
     // Custom oneshot mod implementation with no timers.
@@ -31,8 +34,8 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_BASE] = LAYOUT_ortho_5x15(
-        KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_NO, KC_GRV,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
-        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_LBRC, KC_RBRC,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(LAYER_L3, KC_DEL),
+        KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_NO, KC_GRV,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
+        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(LAYER_L3, KC_DEL),
         LCTL_T(KC_ESC), KC_A,         KC_S,    KC_D,    MT(MOD_LSFT, KC_F),    KC_G,    KC_MINUS, KC_EQL,   KC_H,    MT(MOD_RSFT, KC_J),    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
         KC_LGUI,        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_UNDS,  KC_PLUS,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
         OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, MO(LAYER_L1), KC_LSFT,  KC_NO, KC_BSPC, KC_SPC, MO(LAYER_L2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
@@ -40,17 +43,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LAYER_L1] = LAYOUT_ortho_5x15(
         C(A(KC_DEL)),        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,
-        KC_TAB,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,
-         KC_CAPS, KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_LCBR, KC_NO,   TAB_L,   KC_GRV, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_TRNS,
-         _______, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC,  KC_RCBR, KC_NO,  TAB_R,   KC_TILDE,   KC_QUOT, KC_DQUO, KC_GRV, KC_TILDE, KC_NO, KC_NO,
+        KC_TAB,        KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_LPRN,   KC_NO,KC_NO, KC_RPRN, KC_LBRC,   KC_RBRC,   KC_LCBR,   KC_RCBR,  KC_NO,  KC_NO,
+         KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_NO, KC_NO, TAB_L,   KC_GRV, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_TRNS,
+         ____, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, TAB_R, KC_TILDE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
          _______, _______, _______, _______, _______,_______, _______,   _______,KC_NO, _______, _______, _______, KC_NO, KC_NO, KC_NO
     ),
 
     [LAYER_L2] = LAYOUT_ortho_5x15(
-        C(A(KC_DEL)),   KC_F1, KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+        C(A(KC_DEL)),   KC_F1, KC_F2,   KC_F3,   KC_F4, KC_F5, KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
         KC_TAB,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, KC_NO,
-         KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD,  KC_NO, KC_VOLU,   KC_F15,   KC_BSPC,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_DEL, KC_NO, KC_ENT,
-         _______, C(A(G(S(KC_LEFT)))), C(A(G(S(KC_RIGHT)))),  KC_NO,         KC_NO,          KC_NO, KC_VOLD,   KC_F14,   KC_NO,   KC_NO, G(KC_DOWN), KC_NO, G(S(KC_LBRC)), KC_PGUP, G(S(KC_RBRC)),
+         KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD,  KC_NO, KC_VOLU, KC_F15,   KC_NO, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_NO,
+         _______, MSPL, MSPR,  KC_NO, KC_NO, KC_NO, KC_VOLD, KC_F14, KC_NO,   KC_NO, G(KC_DOWN), KC_NO, TAB_L, KC_PGUP, TAB_R,
          _______, _______, _______, _______, _______,_______, KC_NO,   KC_NO,KC_NO, _______, _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
 

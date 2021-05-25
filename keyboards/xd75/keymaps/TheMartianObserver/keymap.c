@@ -33,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_BASE] = LAYOUT_ortho_5x15(
         KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_MINUS, KC_EQL,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
         KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_UNDS, KC_PLUS,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(LAYER_L3, KC_DEL),
-        LCTL_T(KC_ESC), KC_A,         KC_S,    KC_D,    MT(MOD_LSFT, KC_F),    KC_G,    KC_HOME, KC_PGUP,   KC_H,    MT(MOD_RSFT, KC_J),    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
-        KC_LGUI,        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_PGDN,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
+        LCTL_T(KC_ESC), KC_A,         KC_S,    KC_D,    MT(MOD_LSFT, KC_F),    KC_G,    KC_MINUS, KC_EQL,   KC_H,    MT(MOD_RSFT, KC_J),    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
+        KC_LGUI,        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_UNDS,  KC_PLUS,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
         OS_SHFT, OS_CTRL, KC_NO, OS_ALT, OS_CMD, LSFT_T(KC_SPC),  LT(LAYER_L1, KC_DEL), LT(LAYER_L1, KC_BSPC), KC_SPC, OSL(LAYER_L2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
     ),
 
@@ -50,8 +50,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         C(A(KC_DEL)),   KC_F1, KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
         KC_TAB,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, KC_NO,
          KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD,  KC_NO, KC_VOLU,   KC_F15,   KC_BSPC,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_DEL, KC_NO, KC_ENT,
-         _______, C(A(G(S(KC_LEFT)))), C(A(G(S(KC_RIGHT)))),  KC_NO,         KC_NO,          KC_NO, KC_VOLD,   KC_F14,   KC_NO,   KC_NO, G(KC_DOWN), KC_NO, KC_NO, KC_NO, KC_NO,
-         _______, _______, _______, _______, _______,_______, KC_NO,   KC_NO,KC_NO, _______, _______, _______, KC_NO, KC_NO, KC_NO
+         _______, C(A(G(S(KC_LEFT)))), C(A(G(S(KC_RIGHT)))),  KC_NO,         KC_NO,          KC_NO, KC_VOLD,   KC_F14,   KC_NO,   KC_NO, G(KC_DOWN), KC_NO, G(S(KC_LBRC)), KC_PGUP, G(S(KC_RBRC)),
+         _______, _______, _______, _______, _______,_______, KC_NO,   KC_NO,KC_NO, _______, _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
 
 

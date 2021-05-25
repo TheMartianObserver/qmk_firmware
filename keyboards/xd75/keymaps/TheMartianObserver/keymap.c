@@ -13,6 +13,7 @@
 #define MSPL C(A(G(S(KC_LEFT))))
 #define MSPR C(A(G(S(KC_RIGHT))))
 #define ____ KC_TRNS
+#define _____ KC_TRNS
 
 enum keycodes {
     // Custom oneshot mod implementation with no timers.
@@ -45,8 +46,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         C(A(KC_DEL)),        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,
         KC_TAB,        KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_LPRN,   KC_NO,KC_NO, KC_RPRN, KC_LBRC,   KC_RBRC,   KC_LCBR,   KC_RCBR,  KC_NO,  KC_NO,
          KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_NO, KC_NO, TAB_L,   KC_GRV, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_TRNS,
-         ____, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, TAB_R, KC_TILDE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-         _______, _______, _______, _______, _______,_______, _______,   _______,KC_NO, _______, _______, _______, KC_NO, KC_NO, KC_NO
+         ____, KC_1, KC_2, KC_3, KC_4, KC_5, KC_NO, KC_NO, KC_6, KC_7, KC_8, KC_9, KC_0, KC_NO, KC_NO,
+         ____, ____, ____, ____, ____,____, ____, ____, ____, ____, ____, ____, KC_NO, KC_NO, KC_NO
     ),
 
     [LAYER_L2] = LAYOUT_ortho_5x15(

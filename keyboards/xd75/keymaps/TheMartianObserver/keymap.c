@@ -8,8 +8,8 @@
 #define BACK G(KC_LBRC)
 #define TAB_L G(S(KC_LBRC))
 #define TAB_R G(S(KC_RBRC))
-#define LA_SYM LT(LAYER_L1, KC_BSPC)
-#define LA_NAV OSL(LAYER_L2)
+#define LA_SYM MO(LAYER_L1)
+#define LA_NAV MO(LAYER_L2)
 
 enum keycodes {
     // Custom oneshot mod implementation with no timers.
@@ -31,11 +31,11 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_BASE] = LAYOUT_ortho_5x15(
-        KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_MINUS, KC_EQL,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
-        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_UNDS, KC_PLUS,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(LAYER_L3, KC_DEL),
+        KC_ESC,               KC_1,         KC_2,    KC_3,    KC_4,    KC_5, KC_NO, KC_GRV,  KC_6,    KC_7,    KC_8,    KC_9,   KC_0,   G(KC_BSPC), KC_BSPC,
+        KC_TAB,               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T, KC_LBRC, KC_RBRC,  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  A(KC_BSPC), LT(LAYER_L3, KC_DEL),
         LCTL_T(KC_ESC), KC_A,         KC_S,    KC_D,    MT(MOD_LSFT, KC_F),    KC_G,    KC_MINUS, KC_EQL,   KC_H,    MT(MOD_RSFT, KC_J),    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,
         KC_LGUI,        KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_UNDS,  KC_PLUS,   KC_N,    KC_M,    KC_COMM, KC_DOT,  LGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS),
-        OS_SHFT, OS_CTRL, KC_NO, OS_ALT, OS_CMD, KC_LSFT,  LT(LAYER_L1, KC_DEL), LT(LAYER_L1, KC_BSPC), KC_SPC, OSL(LAYER_L2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
+        OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, MO(LAYER_L1), KC_LSFT,  KC_NO, KC_NO, KC_SPC, MO(LAYER_L2), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
     ),
 
     [LAYER_L1] = LAYOUT_ortho_5x15(
@@ -95,7 +95,6 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:
     case LA_NAV:
-    case LT(LAYER_L1, KC_DEL):
     case OS_SHFT:
     case OS_CTRL:
     case OS_ALT:

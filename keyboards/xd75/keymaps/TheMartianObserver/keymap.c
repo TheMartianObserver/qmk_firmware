@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LAYER_L1] = LAYOUT_ortho_5x15(
         C(A(KC_DEL)),        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,
-        KC_TAB,        KC_MINUS, KC_UNDS, KC_EQL, KC_PLUS, KC_LPRN,   KC_NO,KC_NO, KC_RPRN, KC_LBRC,   KC_RBRC,   KC_LCBR,   KC_RCBR,  KC_NO,  KC_NO,
+        KC_TAB, KC_PLUS, KC_UNDS, KC_EQL, KC_MINUS, KC_LCBR,   KC_NO,KC_NO, KC_RCBR, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO,  KC_NO,
          KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_NO, KC_NO, TAB_L,   KC_GRV, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_TRNS,
          ____, KC_1, KC_2, KC_3, KC_4, KC_5, KC_NO, KC_NO, KC_6, KC_7, KC_8, KC_9, KC_0, KC_NO, KC_NO,
          ____, ____, ____, ____, ____,____, ____, ____, ____, ____, ____, ____, KC_NO, KC_NO, KC_NO
@@ -53,8 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_L2] = LAYOUT_ortho_5x15(
         C(A(KC_DEL)),   KC_F1, KC_F2,   KC_F3,   KC_F4, KC_F5, KC_NO,KC_NO, KC_6, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
         KC_TAB,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, KC_NO,
-         KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD,  KC_NO, KC_VOLU, KC_F15,   KC_NO, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_NO,
-         _______, MSPL, MSPR,  KC_NO, KC_NO, KC_NO, KC_VOLD, KC_F14, KC_NO,   KC_NO, G(KC_DOWN), KC_NO, TAB_L, KC_PGUP, TAB_R,
+         KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD,  KC_NO, KC_VOLD, KC_VOLU,   KC_NO, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, KC_NO, KC_NO,
+         _______, MSPL, MSPR,  KC_NO, KC_NO, KC_NO, KC_F14, KC_F15, KC_NO,   KC_NO, G(KC_DOWN), KC_NO, TAB_L, KC_PGUP, TAB_R,
          _______, _______, _______, _______, _______,_______, KC_NO,   KC_NO,KC_NO, _______, _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
 

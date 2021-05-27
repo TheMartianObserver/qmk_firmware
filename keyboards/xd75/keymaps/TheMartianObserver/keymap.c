@@ -29,9 +29,6 @@ enum keycodes {
     OS_CTRL,
     OS_ALT,
     OS_CMD,
-
-    SW_WIN,  // Switch to next window         (cmd-tab)
-    SW_LANG, // Switch to next input language (ctl-spc)
 };
 
 enum layer_names {
@@ -91,6 +88,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   b = update_oneshot(&os_ctrl_state, KC_LCTL, OS_CTRL, keycode, record);
   c = update_oneshot(&os_alt_state, KC_LALT, OS_ALT, keycode, record);
   d = update_oneshot(&os_cmd_state, KC_LCMD, OS_CMD, keycode, record);
+
   return a && b && c && d;
 }
 
@@ -118,6 +116,7 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     }
 }
 
+#if 0
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_S):
@@ -136,3 +135,4 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM;
     }
 }
+#endif

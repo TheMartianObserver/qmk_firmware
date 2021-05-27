@@ -1,6 +1,8 @@
 #ifndef THEMARTIANOBSERVER_ONESHOT_H_
 #define THEMARTIANOBSERVER_ONESHOT_H_
 
+#include <stdint.h>
+
 extern uint16_t os_timer;
 
 // One shot implementation from callum-oakley

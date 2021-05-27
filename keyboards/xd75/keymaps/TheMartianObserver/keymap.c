@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_L3, KC_DEL)},
     {LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_MINUS, KC_EQL, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT},
     {KC_LGUI, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, RSFT_T(KC_BSLS)},
-    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, MO(LAYER_L1), MT(MOD_LSFT, KC_SPC), MO(LAYER_L2), KC_BSPC, KC_SPC, MO(LAYER_L1), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT},
+    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, MO(LAYER_L1), MT(MOD_LSFT, KC_SPC), MO(LAYER_L2), KC_BSPC, LT(LAYER_L1, KC_SPC), MO(LAYER_L1), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
 
@@ -110,6 +110,7 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     case OS_CTRL:
     case OS_ALT:
     case OS_CMD:
+    case LT(LAYER_L1, KC_SPC):
         return true;
     default:
         return false;

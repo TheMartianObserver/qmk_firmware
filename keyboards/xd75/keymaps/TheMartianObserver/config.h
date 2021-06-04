@@ -18,6 +18,6 @@
 #define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
 
 #define MARTIAN_OS_MOD_TIMEOUT 15000
-#define AUTO_SHIFT_TIMEOUT 175
+#define AUTO_SHIFT_TIMEOUT 150
 #define AUTO_SHIFT_REPEAT
 // #define NO_AUTO_SHIFT_ALPHA

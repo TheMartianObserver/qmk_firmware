@@ -3,6 +3,8 @@
 #include "oneshot.h"
 #include "swapper.h"
 
+#include <stdbool.h>
+
 #define HOME G(KC_LEFT)
 #define END G(KC_RGHT)
 #define FWD G(KC_RBRC)
@@ -71,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = {
     {XXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, XXXX,XXXX, KC_6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12},
-    {KC_TAB, KC_TAB, SW_WIN, TAB_L, TAB_R, KC_VOLU, KC_MUTE, XXXX, KC_DEL, KC_PGUP, KC_UP, KC_PGDN, KC_BSPC, XXXX, XXXX},
+    {KC_TAB, S(KC_TAB), SW_WIN, TAB_L, TAB_R, KC_VOLU, KC_MUTE, XXXX, KC_DEL, KC_PGUP, KC_UP, KC_PGDN, KC_BSPC, XXXX, XXXX},
     {KC_CAPS, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, KC_VOLD, XXXX, XXXX, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, XXXX, XXXX},
     {XXXX, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, SW_APP, KC_END, KC_DEL, XXXX, XXXX},
     {____, ____, ____, ____, ____,____, XXXX, XXXX,XXXX, ____, ____, ____, XXXX, XXXX, XXXX},
@@ -136,12 +138,14 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-    case LA_SYM:
-    case LA_NAV:
-    case OS_SHFT:
-    case OS_CTRL:
-    case OS_ALT:
-    case OS_CMD:
+      case LT(LAYER_SYM, KC_SPC):
+      case LT(LAYER_NAV, KC_SPC):
+      case LA_SYM:
+      case LA_NAV:
+      case OS_SHFT:
+      case OS_CTRL:
+      case OS_ALT:
+      case OS_CMD:
         return true;
     default:
         return false;

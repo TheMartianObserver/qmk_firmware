@@ -35,8 +35,20 @@ enum layer_names {
     LAYER_NAV,
     LAYER_SYM,
     LAYER_SETTINGS,
-    LAYER_SYM2,
 };
+
+#if 0
+// Tap Dance declarations
+enum {
+    TD_SFT_CAPS,
+};
+
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_SFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(OS_SHFT, KC_CAPS),
+};
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = {
@@ -88,13 +100,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {DF(LAYER_BASEA), DF(LAYER_BASE), DF(LAYER_BASEB), XXXX, XXXX,XXXX, XXXX,   XXXX,XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX},
   },
 
-  [LAYER_SYM2] = {
-    {XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX},
-    {XXXX, KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX},
-    {XXXX, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, XXXX, XXXX, XXXX, XXXX, KC_MINUS, KC_EQL, KC_GRV, ____, XXXX, XXXX},
-    {XXXX, XXXX, XXXX, KC_LCBR, KC_RCBR, XXXX, XXXX, XXXX, XXXX, KC_UNDS, KC_PLUS, KC_TILDE, XXXX, XXXX, XXXX},
-    {____, ____, ____, ____, ____, ____, ____, ____, ____, ____, ____, ____, XXXX, XXXX, XXXX},
-  },
 };
 
 oneshot_state os_shft_state = os_up_unqueued;
@@ -172,3 +177,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 #endif
+
+
+

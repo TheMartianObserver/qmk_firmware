@@ -18,6 +18,20 @@
 #define ____ KC_TRNS
 #define XXXX KC_NO
 
+
+// Left-hand home row mods
+#define HOME_A LSFT_T(KC_A)
+#define HOME_S LCTL_T(KC_S)
+#define HOME_D LALT_T(KC_D)
+#define HOME_F LGUI_T(KC_F)
+
+// Right-hand home row mods
+#define HOME_J RGUI_T(KC_J)
+#define HOME_K RALT_T(KC_K)
+#define HOME_L RCTL_T(KC_L)
+#define HOME_SCLN RSFT_T(KC_SCLN)
+
+
 enum keycodes {
     // Custom oneshot mod implementation with no timers.
     OS_SHFT = SAFE_RANGE,
@@ -54,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = {
     {KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
-    {LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_MINUS, KC_EQL, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT},
+    {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_TILDE, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
     {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, LA_NAV, LSFT_T(KC_SPC), G(KC_SPC), KC_BSPC, LT(LAYER_SYM, KC_SPC), LA_SYM, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
@@ -70,14 +84,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASEA] = {
     {KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
-    {LCTL_T(KC_ESC), LSFT_T(KC_A), LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G, KC_MINUS, KC_EQL, KC_H, RGUI_T(KC_J), RALT_T(KC_K), RCTL_T(KC_L), RSFT_T(KC_SCLN), KC_QUOT, KC_ENT},
+    {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
     {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), G(KC_SPC), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
   [LAYER_SYM] = {
     {C(A(KC_DEL)), XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX,   XXXX, XXXX, XXXX, XXXX, XXXX},
-    {KC_TAB, XXXX, KC_LBRC, KC_LCBR, KC_LPRN, KC_GRV, XXXX, XXXX, KC_TILDE, KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV, XXXX, XXXX},
+    {KC_TAB, KC_LT, KC_LCBR, KC_LBRC, KC_LPRN, KC_GRV, XXXX, XXXX, KC_TILDE, KC_RPRN, KC_RBRC, KC_RCBR, KC_GT, XXXX, XXXX},
     {XXXX, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXX, XXXX},
     {XXXX, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, KC_TILDE, ____, ____},
     {____, ____, ____, ____, ____, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
@@ -142,10 +156,22 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
     }
 }
 
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(LAYER_SYM, KC_SPC):
+        case LT(LAYER_NAV, KC_SPC):
+            return true;
+        default:
+            return false;
+    }
+}
+
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
       case LT(LAYER_SYM, KC_SPC):
       case LT(LAYER_NAV, KC_SPC):
+      case MO(LAYER_NAV):
+      case MO(LAYER_SYM):
       case LA_SYM:
       case LA_NAV:
       case OS_SHFT:

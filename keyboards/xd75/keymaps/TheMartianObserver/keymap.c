@@ -20,16 +20,21 @@
 
 
 // Left-hand home row mods
-#define HOME_A LSFT_T(KC_A)
-#define HOME_S LCTL_T(KC_S)
-#define HOME_D LALT_T(KC_D)
-#define HOME_F LGUI_T(KC_F)
+/* #define HOME_A LSFT_T(KC_A) */
+/* #define HOME_S LCTL_T(KC_S) */
+/* #define HOME_D LALT_T(KC_D) */
+/* #define HOME_F LGUI_T(KC_F) */
+
+#define HOME_A LCTL_T(KC_A)
+#define HOME_S LALT_T(KC_S)
+#define HOME_D LGUI_T(KC_D)
+#define HOME_F LSFT_T(KC_F)
 
 // Right-hand home row mods
-#define HOME_J RGUI_T(KC_J)
-#define HOME_K RALT_T(KC_K)
-#define HOME_L RCTL_T(KC_L)
-#define HOME_SCLN RSFT_T(KC_SCLN)
+#define HOME_J RSFT_T(KC_J)
+#define HOME_K RGUI_T(KC_K)
+#define HOME_L RALT_T(KC_L)
+#define HOME_SCLN RCTL_T(KC_SCLN)
 
 
 enum keycodes {
@@ -49,6 +54,7 @@ enum layer_names {
     LAYER_NAV,
     LAYER_SYM,
     LAYER_SETTINGS,
+    LAYER_NUM,
 };
 
 #if 0
@@ -78,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), MO(LAYER_SETTINGS)},
     {LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_MINUS, KC_EQL, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
-    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), G(KC_SPC), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
+    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), LT(LAYER_NUM, G(KC_SPC)), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
   [LAYER_BASEA] = {
@@ -86,13 +92,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
     {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
-    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), G(KC_SPC), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
+    {G(KC_SPC), OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), MO(LAYER_NUM), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
   [LAYER_SYM] = {
     {C(A(KC_DEL)), XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX,   XXXX, XXXX, XXXX, XXXX, XXXX},
     {KC_TAB, KC_LT, KC_LCBR, KC_LBRC, KC_LPRN, KC_GRV, XXXX, XXXX, KC_TILDE, KC_RPRN, KC_RBRC, KC_RCBR, KC_GT, XXXX, XXXX},
-    {XXXX, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXX, XXXX},
+    {XXXX, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_SHFT, OS_CMD, OS_ALT, OS_CTRL, XXXX, XXXX},
     {XXXX, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, KC_TILDE, ____, ____},
     {____, ____, ____, ____, ____, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
   },
@@ -100,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NAV] = {
     {XXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, XXXX,XXXX, KC_6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12},
     {KC_TAB, S(KC_TAB), SW_WIN, TAB_L, TAB_R, XXXX, KC_MUTE, XXXX, KC_DEL, KC_PGUP, KC_UP, KC_PGDN, KC_BSPC, XXXX, XXXX},
-    {KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, XXXX, KC_VOLD, KC_VOLU, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, XXXX, XXXX},
+    {KC_CAPS, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, XXXX, KC_VOLD, KC_VOLU, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, XXXX, XXXX},
     {XXXX, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, SW_APP, KC_END, KC_DEL, ____, ____},
     {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_DEL, ____, ____, ____, ____, ____},
   },
@@ -114,6 +120,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {____, ____, ____, ____, ____,____, ____,   ____,____, ____, ____, ____, DF(LAYER_BASE), DF(LAYER_BASEA), DF(LAYER_BASEB)},
   },
 
+  [LAYER_NUM] = {
+    {XXXX, XXXX, XXXX, XXXX, XXXX,  XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX},
+    {XXXX, KC_1, KC_2, KC_3, KC_4, KC_5, XXXX, XXXX, KC_6, KC_7, KC_8, KC_9, KC_0, XXXX, XXXX},
+    {XXXX, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, XXXX, XXXX, XXXX, XXXX, OS_SHFT, OS_CMD, OS_ALT, OS_CTRL, XXXX, XXXX},
+    {XXXX, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXX, XXXX},
+    {____, ____, ____, ____, ____,____, ____,  ____,____, ____, ____, ____, XXXX, XXXX, XXXX},
+  },
 };
 
 oneshot_state os_shft_state = os_up_unqueued;

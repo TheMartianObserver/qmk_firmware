@@ -48,8 +48,6 @@ enum keycodes {
 };
 
 enum layer_names {
-    LAYER_BASEA,
-    LAYER_BASEB,
     LAYER_BASE,
     LAYER_NAV,
     LAYER_SYM,
@@ -72,22 +70,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = {
-    {KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
-    {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
-    {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
-    {KC_TILDE, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
-    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, LA_NAV, LSFT_T(KC_SPC), G(KC_SPC), KC_BSPC, LT(LAYER_SYM, KC_SPC), LA_SYM, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
-  },
-
-  [LAYER_BASEB] = {
-    {KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
-    {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), MO(LAYER_SETTINGS)},
-    {LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_MINUS, KC_EQL, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT},
-    {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
-    {OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, LT(LAYER_NAV, KC_SPC), LT(LAYER_NUM, G(KC_SPC)), KC_BSPC, LT(LAYER_SYM, KC_SPC), OS_SHFT, KC_LGUI, KC_LALT, KC_LEFT, KC_DOWN, KC_RGHT},
-  },
-
-  [LAYER_BASEA] = {
     {KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
     {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
@@ -117,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {____,  XXXX, XXXX, XXXX, XXXX,  XXXX, XXXX, XXXX, XXXX,    XXXX,    XXXX,    XXXX,   XXXX, KC_DEL, ____},
     {____, XXXX, XXXX, XXXX, XXXX,  XXXX, XXXX, XXXX,   XXXX,   XXXX, XXXX, XXXX, XXXX,   XXXX,XXXX},
     {____, XXXX, XXXX, XXXX, XXXX,  XXXX, XXXX, XXXX,   XXXX,   XXXX, XXXX, XXXX, XXXX, XXXX, XXXX},
-    {____, ____, ____, ____, ____,____, ____,   ____,____, ____, ____, ____, DF(LAYER_BASE), DF(LAYER_BASEA), DF(LAYER_BASEB)},
+    {____, ____, ____, ____, ____,____, ____,   ____,____, ____, ____, ____, XXXX, XXXX, XXXX},
   },
 
   [LAYER_NUM] = {

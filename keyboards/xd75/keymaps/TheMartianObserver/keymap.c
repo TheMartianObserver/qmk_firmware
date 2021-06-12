@@ -25,16 +25,27 @@
 /* #define HOME_D LALT_T(KC_D) */
 /* #define HOME_F LGUI_T(KC_F) */
 
-#define HOME_A LCTL_T(KC_A)
-#define HOME_S LALT_T(KC_S)
-#define HOME_D LGUI_T(KC_D)
-#define HOME_F LSFT_T(KC_F)
+/* #define HOME_A LCTL_T(KC_A) */
+/* #define HOME_S LALT_T(KC_S) */
+/* #define HOME_D LGUI_T(KC_D) */
+/* #define HOME_F LSFT_T(KC_F) */
+
+/* // Right-hand home row mods */
+/* #define HOME_J RSFT_T(KC_J) */
+/* #define HOME_K RGUI_T(KC_K) */
+/* #define HOME_L RALT_T(KC_L) */
+/* #define HOME_SCLN RCTL_T(KC_SCLN) */
+
+#define HOME_A KC_A
+#define HOME_S KC_S
+#define HOME_D KC_D
+#define HOME_F KC_F
 
 // Right-hand home row mods
-#define HOME_J RSFT_T(KC_J)
-#define HOME_K RGUI_T(KC_K)
-#define HOME_L RALT_T(KC_L)
-#define HOME_SCLN RCTL_T(KC_SCLN)
+#define HOME_J KC_J
+#define HOME_K KC_K
+#define HOME_L KC_L
+#define HOME_SCLN KC_SCLN
 
 
 enum keycodes {
@@ -79,16 +90,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_SYM] = {
     {C(A(KC_DEL)), XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX,   XXXX, XXXX, XXXX, XXXX, XXXX},
-    {KC_TAB, KC_LT, KC_LCBR, KC_LBRC, KC_LPRN, KC_GRV, XXXX, XXXX, KC_TILDE, KC_RPRN, KC_RBRC, KC_RCBR, KC_GT, XXXX, XXXX},
-    {XXXX, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_SHFT, OS_CMD, OS_ALT, OS_CTRL, XXXX, XXXX},
-    {XXXX, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, KC_TILDE, ____, ____},
+    {KC_TAB, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, XXXX, XXXX, XXXX, XXXX, KC_LPRN, KC_RPRN, KC_LT, KC_GT, XXXX, XXXX},
+    {XXXX, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXX, XXXX},
+    {KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, XXXX, ____, ____},
     {____, ____, ____, ____, ____, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
   },
 
   [LAYER_NAV] = {
     {XXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, XXXX,XXXX, KC_6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12},
     {KC_TAB, S(KC_TAB), SW_WIN, TAB_L, TAB_R, XXXX, KC_MUTE, XXXX, KC_DEL, KC_PGUP, KC_UP, KC_PGDN, KC_BSPC, XXXX, XXXX},
-    {KC_CAPS, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, XXXX, KC_VOLD, KC_VOLU, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, XXXX, XXXX},
+    {KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, XXXX, KC_VOLD, KC_VOLU, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, XXXX, XXXX},
     {XXXX, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, SW_APP, KC_END, KC_DEL, ____, ____},
     {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_DEL, ____, ____, ____, ____, ____},
   },
@@ -167,6 +178,7 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
       case LT(LAYER_NAV, KC_SPC):
       case MO(LAYER_NAV):
       case MO(LAYER_SYM):
+      case MO(LAYER_NUM):
       case LA_SYM:
       case LA_NAV:
       case OS_SHFT:

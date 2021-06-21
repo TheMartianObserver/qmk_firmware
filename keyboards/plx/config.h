@@ -1,5 +1,4 @@
-/* Copyright 2018 Jason Williams (Wilba)
- * Copyright 2021 Harrison Chan (Xelus)
+/* Copyright 2020 Peac Design and Basekeys
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +14,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Nothing to see here, move along... ;-)
+#pragma once
 
-#include "constellation.h"
+#include "config_common.h"
+
+/* USB Device descriptor parameter */
+#define VENDOR_ID       0x04D8
+#define PRODUCT_ID      0xE972
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    Peac Design
+#define PRODUCT         PLX
+
+/* key matrix size */
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 15
+
+/* key matrix pins */
+
+#define MATRIX_ROW_PINS { B0, B1, B2, B3, B7 }
+#define MATRIX_COL_PINS { D5, D3, D2, D1, D0, D4, D6, D7, B4, B5, B6, C6, C7, F1, F0 }
+
+/* COL2ROW, ROW2COL*/
+#define DIODE_DIRECTION COL2ROW
+

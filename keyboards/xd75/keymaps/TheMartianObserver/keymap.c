@@ -173,13 +173,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-      case LT(LAYER_SYM, KC_SPC):
-      case LT(LAYER_NAV, KC_SPC):
-      case MO(LAYER_NAV):
-      case MO(LAYER_SYM):
-      case MO(LAYER_NUM):
-      case LA_SYM:
-      case LA_NAV:
+      case LT(LAYER_NAV, KC_DEL):
+      case LT(LAYER_SYM, KC_BSPC):
       case OS_SHFT:
       case OS_CTRL:
       case OS_ALT:

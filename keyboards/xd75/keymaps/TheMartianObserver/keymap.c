@@ -84,15 +84,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
     {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_UP, KC_BSLS},
-    {KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, LT(LAYER_NAV, KC_DEL), LSFT_T(KC_SPC), XXXX, XXXX, LSFT_T(KC_SPC), LT(LAYER_SYM, KC_BSPC), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT},
+    {KC_SPC, KC_LCTL, KC_LALT, KC_LGUI, MO(LAYER_NAV), LSFT_T(KC_BSPC), KC_DEL, KC_BSPC, LSFT_T(KC_SPC), MO(LAYER_SYM), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
   [LAYER_SYM] = {
     {C(A(KC_DEL)), XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX, XXXX,   XXXX, XXXX, XXXX, XXXX, XXXX},
     {KC_TAB, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, XXXX, XXXX, XXXX, XXXX, KC_LPRN, KC_RPRN, KC_LT, KC_GT, XXXX, XXXX},
-    {KC_BSPC, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXX, XXXX},
+    {KC_SPC, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXX, XXXX},
     {KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, XXXX, ____, ____},
-    {____, ____, ____, ____, KC_BSPC, MO(LAYER_NUM), ____, ____, ____, ____, ____, ____, ____, ____, ____},
+    {____, ____, ____, ____, KC_BSPC, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
   },
 
   [LAYER_NAV] = {
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {G(KC_SPC), S(KC_TAB), SW_WIN, TAB_L, TAB_R, S(KC_TAB), KC_MUTE, XXXX, XXXX, KC_PGUP, KC_UP, KC_PGDN, XXXX, XXXX, XXXX},
     {KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_TAB, KC_VOLD, KC_VOLU, XXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, KC_BSPC, XXXX},
     {KC_GRV, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, XXXX, KC_END, KC_DEL, ____, ____},
-    {____, ____, ____, ____, ____,____, ____, ____, MO(LAYER_NUM), KC_BSPC, ____, ____, ____, ____, ____},
+    {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_BSPC, ____, ____, ____, ____, ____},
   },
 
 
@@ -173,8 +173,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-      case LT(LAYER_NAV, KC_DEL):
-      case LT(LAYER_SYM, KC_BSPC):
+      case MO(LAYER_NAV):
+      case MO(LAYER_SYM):
       case OS_SHFT:
       case OS_CTRL:
       case OS_ALT:

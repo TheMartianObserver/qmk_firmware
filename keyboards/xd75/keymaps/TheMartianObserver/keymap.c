@@ -2,7 +2,7 @@
 
 #include "oneshot.h"
 #include "swapper.h"
-
+#include "tmo_defs.h"
 #include <stdbool.h>
 
 #define HOME G(KC_LEFT)
@@ -25,26 +25,31 @@
 /* #define HOME_D LALT_T(KC_D) */
 /* #define HOME_F LGUI_T(KC_F) */
 
-/* #define HOME_A LCTL_T(KC_A) */
-/* #define HOME_S LALT_T(KC_S) */
-/* #define HOME_D LGUI_T(KC_D) */
-/* #define HOME_F LSFT_T(KC_F) */
+#define HOME_A LCTL_T(KC_A)
+#define HOME_S LALT_T(KC_S)
+#define HOME_D LGUI_T(KC_D)
+#define HOME_F LSFT_T(KC_F)
 
 /* // Right-hand home row mods */
-/* #define HOME_J RSFT_T(KC_J) */
-/* #define HOME_K RGUI_T(KC_K) */
-/* #define HOME_L RALT_T(KC_L) */
-/* #define HOME_SCLN RCTL_T(KC_SCLN) */
+/* #define HOME_J RGUI_T(KC_J) */
+/* #define HOME_K RALT_T(KC_K) */
+/* #define HOME_L RCTL_T(KC_L) */
+/* #define HOME_SCLN RSFT_T(KC_SCLN) */
 
-#define HOME_A KC_A
-#define HOME_S KC_S
-#define HOME_D KC_D
-#define HOME_F KC_F
+#define HOME_J RSFT_T(KC_J)
+#define HOME_K RGUI_T(KC_K)
+#define HOME_L RALT_T(KC_L)
+#define HOME_SCLN RCTL_T(KC_SCLN)
 
-#define HOME_J KC_J
-#define HOME_K KC_K
-#define HOME_L KC_L
-#define HOME_SCLN KC_SCLN
+/* #define HOME_A KC_A */
+/* #define HOME_S KC_S */
+/* #define HOME_D KC_D */
+/* #define HOME_F KC_F */
+
+/* #define HOME_J KC_J */
+/* #define HOME_K KC_K */
+/* #define HOME_L KC_L */
+/* #define HOME_SCLN KC_SCLN */
 
 
 enum keycodes {
@@ -78,9 +83,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 #endif
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = {
-    {KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
+    {KC_ESC, K1, K2, KC_3, KC_4, KC_5, KC_LCBR, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, G(KC_BSPC), KC_BSPC},
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
     {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, RGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS)},
@@ -97,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = {
     {XXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, XXXX,XXXX, KC_6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12},
-    {G(KC_SPC), XXXX, SW_WIN, TAB_L, TAB_R, S(KC_TAB), KC_MUTE, XXXX, XXXX, KC_PGUP, KC_UP, KC_PGDN, XXXX, XXXX, XXXX},
-    {KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_TAB, KC_VOLD, KC_VOLU, XXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, KC_BSPC, XXXX},
+    {G(KC_SPC), XXXX, SW_WIN, TAB_L, TAB_R, S(KC_TAB), KC_MUTE, XXXX, XXXX, KC_PGUP, XXXX, KC_PGDN, XXXX, XXXX, XXXX},
+    {KC_CAPS, OS_SHFT, OS_CTRL, OS_ALT, OS_CMD, KC_TAB, KC_VOLD, KC_VOLU, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_ENT, KC_BSPC, XXXX},
     {KC_GRV, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, XXXX, KC_END, KC_DEL, ____, ____},
     {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_BSPC, ____, ____, ____, ____, KC_F19},
   },
@@ -165,6 +171,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(LAYER_SYM, KC_SPC):
         case LT(LAYER_NAV, KC_SPC):
+        case LT(LAYER_SYM, KC_BSPC):
+        case LT(LAYER_NAV, KC_BSPC):
             return true;
         default:
             return false;

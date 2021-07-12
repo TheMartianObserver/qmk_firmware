@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, XXXX, XXXX, XXXX, XXXX, KC_LPRN, KC_RPRN, KC_LT, KC_GT, XXXX, XXXX},
     {KC_SPC, KC_MINS, KC_UNDS, KC_EQL, KC_PLUS, KC_PIPE, XXXX, XXXX, KC_BSLS, OS_SHFT, OS_CMD, OS_ALT, OS_CTRL, XXXX, XXXX},
     {KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, XXXX, XXXX, KC_CIRC, KC_AMPR, KC_ASTR, XXXX, XXXX, ____, ____},
-    {____, ____, ____, ____, KC_BSPC, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
+    {____, ____, ____, ____, KC_DEL, KC_BSPC, ____, ____, ____, ____, ____, ____, ____, ____, ____},
   },
 
   [LAYER_NAV] = {
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {G(KC_SPC), XXXX, SW_WIN, TAB_L, TAB_R, S(KC_TAB), KC_MUTE, XXXX, XXXX, KC_PGUP, KC_UP, KC_PGDN, XXXX, XXXX, XXXX},
     {KC_CAPS, OS_CTRL, OS_ALT, OS_CMD, OS_SHFT, KC_TAB, KC_VOLD, KC_VOLU, XXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENT, KC_BSPC, XXXX},
     {KC_GRV, MSPL, MSPR, KC_MPRV, KC_MPLY, KC_MNXT, KC_F14, KC_F15, XXXX, KC_HOME, XXXX, KC_END, KC_DEL, ____, ____},
-    {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_BSPC, ____, ____, ____, ____, KC_F19},
+    {____, ____, ____, ____, ____,____, ____, ____, KC_BSPC, KC_DEL, ____, ____, ____, ____, KC_F19},
   },
 
 

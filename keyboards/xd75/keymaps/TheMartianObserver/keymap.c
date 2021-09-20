@@ -22,8 +22,8 @@
 // Left-hand home row mods
 /* #define HOME_A LSFT_T(KC_A) */
 /* #define HOME_S LCTL_T(KC_S) */
-/* #define HOME_D LALT_T(KC_D) */
-/* #define HOME_F LGUI_T(KC_F) */
+#define HOME_D LALT_T(KC_D)
+#define HOME_F LGUI_T(KC_F)
 
 /* #define HOME_A LCTL_T(KC_A) */
 /* #define HOME_S LALT_T(KC_S) */
@@ -31,8 +31,8 @@
 /* #define HOME_F LSFT_T(KC_F) */
 
 /* // Right-hand home row mods */
-/* #define HOME_J RGUI_T(KC_J) */
-/* #define HOME_K RALT_T(KC_K) */
+#define HOME_J RGUI_T(KC_J)
+#define HOME_K RALT_T(KC_K)
 /* #define HOME_L RCTL_T(KC_L) */
 /* #define HOME_SCLN RSFT_T(KC_SCLN) */
 
@@ -43,11 +43,11 @@
 
 #define HOME_A KC_A
 #define HOME_S KC_S
-#define HOME_D KC_D
-#define HOME_F KC_F
+/* #define HOME_D KC_D */
+/* #define HOME_F KC_F */
 
-#define HOME_J KC_J
-#define HOME_K KC_K
+/* #define HOME_J KC_J */
+/* #define HOME_K KC_K */
 #define HOME_L KC_L
 #define HOME_SCLN KC_SCLN
 
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LBRC, KC_RBRC, KC_Y, KC_U, KC_I, KC_O, KC_P, A(KC_BSPC), LT(LAYER_SETTINGS, KC_DEL)},
     {LCTL_T(KC_ESC), HOME_A, HOME_S, HOME_D, HOME_F, KC_G, KC_MINUS, KC_EQL, KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, KC_QUOT, KC_ENT},
     {KC_GRV, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_UNDS, KC_PLUS, KC_N, KC_M, KC_COMM, KC_DOT, RGUI_T(KC_SLSH), KC_UP, RSFT_T(KC_BSLS)},
-    {XXXX, XXXX, XXXX, XXXX, LT(LAYER_NAV, KC_BSPC), LSFT_T(KC_SPC), KC_DEL, KC_DEL, LSFT_T(KC_SPC), LT(LAYER_SYM, KC_BSPC), KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT},
+    {KC_LSFT, OS_CTRL, KC_LALT, KC_LGUI, LT(LAYER_NAV, KC_BSPC), LSFT_T(KC_SPC), KC_DEL, KC_DEL, RSFT_T(KC_SPC), LT(LAYER_SYM, KC_BSPC), OS_CMD, OS_ALT, KC_LEFT, KC_DOWN, KC_RGHT},
   },
 
   [LAYER_SYM] = {
